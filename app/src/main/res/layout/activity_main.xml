@@ -9,7 +9,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundcolor"
 
 
     tools:context=".MainActivity">
@@ -39,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="Welcome 👋"
                 android:textAlignment="center"
-                android:textColor="@color/maincolor"
+                android:textColor="@color/purple_700"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
@@ -48,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/border"
+                android:background="@drawable/input_border"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:ems="10"
                 android:hint="email"
@@ -64,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/border"
+                android:background="@drawable/input_border"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:ems="10"
                 android:hint="password"
@@ -81,11 +80,8 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/border"
                 android:text="Sign In"
-
                 app:layout_constraintStart_toStartOf="@+id/passwordText"
                 app:layout_constraintTop_toBottomOf="@+id/passwordText" />
-
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

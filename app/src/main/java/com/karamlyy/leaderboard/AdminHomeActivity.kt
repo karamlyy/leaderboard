@@ -1,11 +1,13 @@
 package com.karamlyy.leaderboard
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
@@ -23,7 +25,21 @@ class AdminHomeActivity : AppCompatActivity() {
         val pointField = findViewById<EditText>(R.id.pointText)
         val feedbackField = findViewById<EditText>(R.id.feedbackText)
         val confirmButton = findViewById<Button>(R.id.confirmButton)
+        val logoutButton = findViewById<Button>(R.id.logoutButton)
+        val leaderboardButton = findViewById<Button>(R.id.leaderboardButton)
 
+        leaderboardButton.setOnClickListener {
+            //val intent = Intent(this, SingleLeaderboardActivity::class.java)
+            val intent = Intent(this, LeaderboardActivity::class.java)
+            startActivity(intent)
+            //finish()
+        }
+
+        logoutButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         adminNameField.text = firebaseManager.getUser().username
         confirmButton.setOnClickListener {
             runBlocking {
@@ -32,26 +48,35 @@ class AdminHomeActivity : AppCompatActivity() {
                         if(feedbackField.length() < 30){
 
                             firebaseManager.submit(
-
                                 studentEmailField.text.toString(),
                                 pointField.text.toString().toInt(),
                                 feedbackField.text.toString()
                             )
-                            Toast.makeText(this@AdminHomeActivity, "submitted", Toast.LENGTH_LONG).show()
+
+                            runOnUiThread {
+                                AlertDialog.Builder(this@AdminHomeActivity)
+                                    .setTitle("Submission Successful")
+                                    .setMessage("Your feedback has been submitted.")
+                                    .setPositiveButton(android.R.string.ok, null)
+                                    .show()
+                            }
+
                             studentEmailField.setText("")
                             pointField.setText("")
                             feedbackField.setText("")
 
-                        }
-                        else{
+                        } else {
                             throw IllegalArgumentException("Please enter less than 30 symbols")
                         }
                     } catch (e: Throwable) {
-                        Toast.makeText(this@AdminHomeActivity, e.message, Toast.LENGTH_LONG).show()
+                        runOnUiThread {
+                            Toast.makeText(this@AdminHomeActivity, e.message, Toast.LENGTH_LONG).show()
+                        }
                     }
                 }
             }
         }
+
 
     }
 

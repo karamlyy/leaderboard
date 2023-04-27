@@ -13,25 +13,25 @@
 
     <TextView
         android:id="@+id/orderByRank"
-        android:layout_width="50dp"
+        android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Admin"
+        android:text="Order"
         android:textAlignment="textStart" />
 
     <TextView
         android:id="@+id/studentUsername"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Points" />
+        android:text="User" />
 
     <TextView
         android:id="@+id/studentTotalPoint"
-        android:layout_width="50dp"
+        android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Feedbacks"
-        android:textAlignment="textStart" />
+        android:text="Points"
+        android:textAlignment="textEnd" />
 </LinearLayout>

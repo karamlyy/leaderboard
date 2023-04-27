@@ -3,10 +3,7 @@ package com.karamlyy.leaderboard
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Adapter
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
@@ -35,6 +32,13 @@ class StudentHomeActivity : AppCompatActivity() {
 
         val user = firebaseManager.getUser()
         studentNameView.text = user.username
+
+        val reloadButton = findViewById<Button>(R.id.reloadPage)
+        reloadButton.setOnClickListener {
+            val intent = Intent(this, StudentHomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         runBlocking {
             launch {
                 try {
@@ -58,11 +62,13 @@ class StudentHomeActivity : AppCompatActivity() {
         leaderboardButton.setOnClickListener {
             val intent = Intent(this, LeaderboardActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         logoutButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
