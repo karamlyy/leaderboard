@@ -30,6 +30,7 @@ class LeaderboardActivity : AppCompatActivity() {
 
         val currentUser = firebaseManager.getUser().userType
 
+
         if (currentUser == UserType.ADMIN) {
             exchangePoint.visibility = View.GONE
         } else {
@@ -37,7 +38,11 @@ class LeaderboardActivity : AppCompatActivity() {
         }
 
         backToProfile.setOnClickListener {
-            val intent = Intent(this, StudentHomeActivity::class.java)
+            val intent = if(currentUser.toString() == "ADMIN") {
+                Intent(this, AdminHomeActivity::class.java)
+            } else {
+                Intent(this, StudentHomeActivity::class.java)
+            }
             startActivity(intent)
             finish()
         }
