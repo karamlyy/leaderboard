@@ -14,20 +14,26 @@
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginEnd="20dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="60dp"
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:orientation="vertical"
             android:background="@drawable/border"
+            android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
@@ -45,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
+                android:autofillHints="fsfssfdfds"
                 android:background="@drawable/border"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:ems="10"
@@ -53,8 +60,7 @@
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:autofillHints="fsfssfdfds" />
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <EditText
@@ -98,27 +104,27 @@
                     android:id="@+id/confirmButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Confirm"
                     android:layout_gravity="center"
-                    android:background="@drawable/border" />
+                    android:background="@drawable/border"
+                    android:text="Confirm" />
 
                 <Button
                     android:id="@+id/leaderboardButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Leaderboard"
-                    android:layout_marginTop="10dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/border"/>
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border"
+                    android:text="Leaderboard" />
 
                 <Button
                     android:id="@+id/logoutButton"
                     android:layout_width="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:text="Logout"
-                    android:background="@drawable/border" />
+                    android:background="@drawable/border"
+                    android:text="Logout" />
 
             </LinearLayout>
 

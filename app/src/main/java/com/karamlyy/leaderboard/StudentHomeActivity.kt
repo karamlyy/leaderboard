@@ -23,8 +23,8 @@ class StudentHomeActivity : AppCompatActivity() {
         val totalPointView = findViewById<TextView>(R.id.totalPoint)
         val leaderboardButton = findViewById<Button>(R.id.leaderboardButton)
         val logoutButton = findViewById<Button>(R.id.backToLogin)
+        val schoolOfStudent = findViewById<TextView>(R.id.schoolOfStudent)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
         val ratingsAdapter = RatingsAdapter()
@@ -32,7 +32,7 @@ class StudentHomeActivity : AppCompatActivity() {
 
         val user = firebaseManager.getUser()
         studentNameView.text = user.username
-
+        schoolOfStudent.text = user.school
         val reloadButton = findViewById<Button>(R.id.reloadPage)
         reloadButton.setOnClickListener {
             val intent = Intent(this, StudentHomeActivity::class.java)

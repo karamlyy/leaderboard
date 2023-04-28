@@ -8,12 +8,14 @@ data class User(
     val id: String,
     val email: String,
     val username: String,
-    val userType: UserType
+    val userType: UserType,
+    val school: String,
 )
 
 data class LeaderboardMember(
     val username: String,
     val point: Long
+
 )
 
 data class Rating(
@@ -49,7 +51,8 @@ class FirebaseManager {
             username = document.get("username") as String,
             userType = UserType.valueOf(
                 document.get("user_type") as String
-            )
+            ),
+            school = document.get("school") as String
         )
     }
 

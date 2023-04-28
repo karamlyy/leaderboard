@@ -34,6 +34,13 @@
             android:textSize="20dp"
             android:textStyle="bold"/>
 
+        <TextView
+            android:id="@+id/schoolOfStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView" />
+
     </LinearLayout>
 
     <!-- Middle section with RecyclerView -->
@@ -53,33 +60,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
+        android:padding="10dp"
         android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/leaderboardButton"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
+            android:textSize="10dp"
+            android:layout_marginBottom="5dp"
 
             android:text="leaderboard" />
 
         <Button
             android:id="@+id/backToLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:text="logout"
+            android:layout_marginBottom="5dp"
+
             android:background="@drawable/border"
             android:layout_marginStart="16dp"
+            android:textSize="10dp"
+
             android:layout_marginEnd="16dp" />
 
         <Button
             android:id="@+id/reloadPage"
+            android:layout_marginBottom="5dp"
 
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
-
+            android:textSize="10dp"
             android:text="reload" />
 
     </LinearLayout>
