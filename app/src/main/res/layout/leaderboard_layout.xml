@@ -9,11 +9,12 @@
     android:layout_marginLeft="40dp"
     android:layout_marginBottom="5dp"
     android:layout_marginRight="40dp"
-    android:background="@drawable/fullscreen_border">
+    android:background="@drawable/border">
 
     <TextView
         android:id="@+id/orderByRank"
         android:layout_width="20dp"
+        android:textSize="15dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Order"
@@ -25,6 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
+        android:textSize="15dp"
+
         android:text="User" />
 
     <TextView
@@ -33,5 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Points"
+        android:textSize="15dp"
+
+        android:paddingStart="5dp"
         android:textAlignment="textEnd" />
 </LinearLayout>
+

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -25,7 +26,7 @@ class AdminHomeActivity : AppCompatActivity() {
         val pointField = findViewById<EditText>(R.id.pointText)
         val feedbackField = findViewById<EditText>(R.id.feedbackText)
         val confirmButton = findViewById<Button>(R.id.confirmButton)
-        val logoutButton = findViewById<Button>(R.id.logoutButton)
+        val logoutButton = findViewById<ImageButton>(R.id.logoutButton)
         val leaderboardButton = findViewById<Button>(R.id.leaderboardButton)
 
         leaderboardButton.setOnClickListener {

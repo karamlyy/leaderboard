@@ -7,8 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="50dp"
-    android:background="@drawable/recyclerview_border"
+
 
     tools:context=".AdminHomeActivity">
 
@@ -42,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="Name of Admin"
                 android:textAlignment="center"
-                android:textColor="@color/maincolor"
+                android:textColor="@color/purple_700"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
@@ -105,6 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+
                     android:background="@drawable/border"
                     android:text="Confirm" />
 
@@ -117,17 +117,23 @@
                     android:background="@drawable/border"
                     android:text="Leaderboard" />
 
-                <Button
+                <ImageButton
                     android:id="@+id/logoutButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/icon_border_logout"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/border"
-                    android:text="Logout" />
-
+                    android:scaleType="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
             </LinearLayout>
 
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
