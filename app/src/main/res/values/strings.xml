@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Leaderboard</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="label_welcome">Welcome 👋</string>
+    <string name="label_signIn_email">email</string>
+    <string name="label_signIn_password">password</string>
+
 
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="label_welcome">Xoş gəlmisiniz 👋</string>
+    <string name="label_signIn_email">email</string>
+    <string name="label_signIn_password">şifrə</string>
+
+</resources>
