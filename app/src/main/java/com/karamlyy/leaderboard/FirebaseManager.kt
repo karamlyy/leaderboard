@@ -1,8 +1,13 @@
 package com.karamlyy.leaderboard
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.google.android.material.floatingactionbutton.FloatingActionButton.Size
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Date
 
 data class User(
     val id: String,
@@ -22,7 +27,8 @@ data class Rating(
     val id: String,
     val admin: String,
     val point: Long,
-    val comment: String
+    val comment: String,
+    val createdAt: LocalDateTime,
 )
 
 enum class UserType {
@@ -33,7 +39,7 @@ class FirebaseManager {
     companion object {
         val instance: FirebaseManager = FirebaseManager()
     }
-
+    private val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private var user: User? = null
@@ -60,6 +66,7 @@ class FirebaseManager {
         user = null
     }
 
+
     suspend fun submit(email: String, point: Int, comment: String) {
         val document = firestore.collection("user")
             .whereEqualTo("email", email)
@@ -73,7 +80,8 @@ class FirebaseManager {
                 "user_id" to document.id,
                 "admin_id" to getUser().id,
                 "point" to point,
-                "comment" to comment
+                "comment" to comment,
+                "created_at" to LocalDateTime.now().format(formatter),
             )
         ).await()
     }
@@ -121,10 +129,12 @@ class FirebaseManager {
                     id = it.id,
                     admin = admin_username,
                     point = it.get("point") as Long,
-                    comment = it.get("comment") as String
+                    comment = it.get("comment") as String,
+                    createdAt = LocalDateTime.parse(it.get("created_at") as String, formatter)
                 )
             )
         }
+        ratings.sortByDescending { it.createdAt }
         return ratings
     }
 
